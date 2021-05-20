@@ -1,0 +1,22 @@
+def sum_divisors(n):
+    result = 0
+
+    for i in range(1, n):
+        if n % i == 0:
+            result += i
+    return result
+
+
+
+divisors = dict()
+for i in range(10000):
+    divisors[i] = sum_divisors(i)
+
+
+s = 0
+for key, value in divisors.items():
+    if value < 10000 and (divisors[value] == key) and (key != value):
+        print("Key: {0}, Value: {1}".format(key, value))
+        s += value
+
+print(s)
