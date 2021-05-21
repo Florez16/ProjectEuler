@@ -1,0 +1,33 @@
+function isPalindrome(num) {
+    var str = String(num);
+    for (var i = 0; i < Math.floor(str.length / 2); i++) {
+        //document.write(str[i], str[str.length - i - 1]);
+        
+        if (str[i] != str[str.length - i - 1]) {
+            return false;
+        }
+    }
+
+    return true;
+
+}
+
+
+function findSum() {
+    var result = 0;
+
+    for (var i = 0; i < 1000000; i++) {
+        var bin = i.toString(2);
+
+        if (isPalindrome(i) && isPalindrome(bin)) {
+            result += i;
+        }
+    }
+
+
+    return result;
+}
+
+
+re = findSum();
+document.write(re);
